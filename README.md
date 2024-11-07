@@ -1,0 +1,1 @@
+This repository is meant to be used as a starting point when writting a new Python script.
