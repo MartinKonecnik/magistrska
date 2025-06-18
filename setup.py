@@ -8,7 +8,7 @@ from cestel_helpers.version import generate_version_file
 version_file_name = '.version'
 
 # List of files which will be added to the ZIP and for which hashes are calculated and stored in the version file.
-files = ['README.md', 'template.py']
+files = ['README.md', 'main.py']
 
 ver = generate_version_file(version_file_name, files=files)
 
