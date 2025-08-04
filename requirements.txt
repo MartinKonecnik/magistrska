@@ -1,5 +1,5 @@
-cestel_helpers~=0.10.0
-tensorflow~=2.18.0
+cestel_helpers>=1
 swm~=1.5.1
-scikit-learn
-pytorch
+scikit-learn~=1.6.1
+torch~=2.7
+numpy~=2.1.3
