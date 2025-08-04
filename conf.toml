@@ -1,3 +1,2 @@
-unaltered = "/home/konecnikm/data/datasets/catez/Catez_IJS_1/events_unaltered"
-corrected = "/home/konecnikm/data/datasets/catez/Catez_IJS_2/events"
+data_dir = 'data/datasets/catez/catez_masters'
 channel = 16
