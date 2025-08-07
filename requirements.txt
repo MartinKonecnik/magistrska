@@ -1,4 +1,5 @@
-cestel_helpers>=1
+# Libraries cestel-helpers and swm are not available on PyPi. Install with pip install --extra-index-url https://pip.siwim.si/simple .
+cestel-helpers>=1
 swm~=1.5.1
 scikit-learn~=1.6.1
 torch~=2.7
