@@ -1,3 +1,4 @@
 data_dir = 'data/datasets/catez/catez_masters'
 first_channel = 0
 last_channel = 7
+load_events = false
