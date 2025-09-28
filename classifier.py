@@ -6,19 +6,21 @@ class BinaryClassifier(torch.nn.Module):
     def __init__(self, input_dim):
         super().__init__()
 
-        # Larger initial kernels to capture broader patterns
         self.conv_layers = torch.nn.Sequential(
-            torch.nn.Conv1d(1, 128, kernel_size=51, padding=25),  # Larger kernel
+            torch.nn.Conv1d(1, 128, kernel_size=51, padding=25),
+            torch.nn.BatchNorm1d(128),
+            torch.nn.ReLU(),
+            torch.nn.Dropout(0.4),
+
+            torch.nn.Conv1d(128, 64, kernel_size=25, padding=12),
+            torch.nn.BatchNorm1d(64),
+            torch.nn.ReLU(),
+            torch.nn.Dropout(0.4),
+
+            torch.nn.Conv1d(64, 32, kernel_size=11, padding=5),
+            torch.nn.BatchNorm1d(32),
             torch.nn.ReLU(),
             torch.nn.Dropout(0.3),
-
-            torch.nn.Conv1d(128, 64, kernel_size=25, padding=12),  # Medium kernel
-            torch.nn.ReLU(),
-            torch.nn.Dropout(0.3),
-
-            torch.nn.Conv1d(64, 32, kernel_size=11, padding=5),  # Smaller kernel
-            torch.nn.ReLU(),
-            torch.nn.Dropout(0.2),
         )
 
         # Add attention mechanism to focus on non-zero regions
