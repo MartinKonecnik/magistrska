@@ -10,17 +10,17 @@ class BinaryClassifier(torch.nn.Module):
             torch.nn.Conv1d(1, 128, kernel_size=51, padding=25),
             torch.nn.BatchNorm1d(128),
             torch.nn.ReLU(),
-            torch.nn.Dropout(0.4),
+            torch.nn.Dropout(0.3),
 
             torch.nn.Conv1d(128, 64, kernel_size=25, padding=12),
             torch.nn.BatchNorm1d(64),
             torch.nn.ReLU(),
-            torch.nn.Dropout(0.4),
+            torch.nn.Dropout(0.3),
 
             torch.nn.Conv1d(64, 32, kernel_size=11, padding=5),
             torch.nn.BatchNorm1d(32),
             torch.nn.ReLU(),
-            torch.nn.Dropout(0.3),
+            torch.nn.Dropout(0.2),
         )
 
         # Add attention mechanism to focus on non-zero regions
