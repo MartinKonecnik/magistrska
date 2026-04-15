@@ -6,3 +6,4 @@ test = 0.2
 epoch = 100
 batch = 32
 lr = 0.003
+model = "0.1.0.dev14+6e5434a.master-classifier1"
