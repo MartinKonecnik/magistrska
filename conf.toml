@@ -2,3 +2,7 @@ data_dir = 'data/datasets/catez/catez_masters'
 first_channel = 0
 last_channel = 7
 load_events = false
+test = 0.3
+epoch = 300
+batch = 32
+lr = 0.003
