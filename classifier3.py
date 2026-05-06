@@ -23,6 +23,8 @@ class BinaryClassifier(torch.nn.Module):
         self.bn4 = torch.nn.BatchNorm1d(32)
         self.dropout4 = torch.nn.Dropout(0.2)
 
+        self.residual_projection = torch.nn.Conv1d(128, 32, kernel_size=1)
+
         self.attention = torch.nn.Sequential(
             torch.nn.Conv1d(32, 1, kernel_size=1),
             torch.nn.Sigmoid()
@@ -60,6 +62,14 @@ class BinaryClassifier(torch.nn.Module):
         out = self.bn4(out)
         out = self.relu(out)
 
+        residual_projected = self.residual_projection(residual)
+
+        if residual_projected.shape[2] != out.shape[2]:
+            residual_projected = torch.nn.functional.interpolate(
+                residual_projected, size=out.shape[2], mode='linear', align_corners=False
+            )
+
+        out = out + residual_projected
         out = self.relu(out)
         out = self.dropout4(out)
 
